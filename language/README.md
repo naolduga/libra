@@ -37,18 +37,23 @@ Libra Core components interact with the language component through the VM. Speci
 ## How is this folder organized?
 
 ```
-├── README.md          # This README
-├── benchmarks         # Benchmarks for the Move language VM and surrounding code
-├── bytecode_verifier  # The bytecode verifier
-├── e2e_tests          # Infrastructure and tests for the end-to-end flow
-├── functional_tests   # Testing framework for the Move language
-├── compiler           # The IR to Move bytecode compiler
-├── stdlib             # Core Move modules and transaction scripts
-├── test.sh            # Script for running all the language tests
+├── README.md            # This README
+├── benchmarks           # Benchmarks for the Move language VM and surrounding code
+├── bytecode_verifier    # The bytecode verifier
+├── e2e_tests            # Infrastructure and tests for the end-to-end flow
+├── functional_tests     # Testing framework for the Move language
+├── stackless_bytecode   # Stackless bytecode generator, and translator to Boogie IVL
+├── compiler             # The IR to Move bytecode compiler
+├── stdlib               # Core Move modules and transaction scripts
+├── tools
+    ├── cost_synthesis   # Infrastructure for gas cost synthesis
+    ├── repl             # REPL (Read–Eval–Print Loop) tool for the Move language
+    └── test_generation  # Bytecode generation for testing purposes
+├── transaction_builder  # Transaction program creation module
+├── test.sh              # Script for running all the language tests
 └── vm
-    ├── cost_synthesis # Cost synthesis for bytecode instructions
-    ├── src            # Bytecode language definitions, serializer, and deserializer
-    ├── tests          # VM tests
-    ├── vm_genesis     # The genesis state creation, and blockchain genesis writeset
-    └── vm_runtime     # The bytecode interpreter
+    ├── serializer_tests # Bytecode serializer proptests
+    ├── src              # VM core files
+    ├── vm_genesis       # The genesis state creation, and blockchain genesis writeset
+    └── vm_runtime       # Verification and execution engine for the Move bytecode format
 ```
